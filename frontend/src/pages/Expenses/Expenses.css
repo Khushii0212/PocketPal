@@ -1,0 +1,15 @@
+.expenses-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.expenses-content {
+  padding: 30px;
+}
+
+.expenses-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 25px;
+}

@@ -1,0 +1,53 @@
+.expense-list {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.actions .edit {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.actions .save {
+  background-color: #16a34a;
+  color: white;
+}
+
+.actions .delete {
+  background-color: #dc2626;
+  color: white;
+}

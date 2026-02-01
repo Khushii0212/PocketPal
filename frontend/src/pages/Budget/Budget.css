@@ -1,0 +1,81 @@
+.budget-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.budget-content {
+  padding: 30px;
+}
+
+.budget-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 25px;
+}
+
+/* Set Budget Card */
+.set-budget-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.set-budget-card h3 {
+  margin-bottom: 15px;
+}
+
+.set-budget-form {
+  display: flex;
+  gap: 15px;
+}
+
+.set-budget-form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.set-budget-form button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.set-budget-form button:hover {
+  background-color: #4338ca;
+}
+
+/* Budget Summary Cards */
+.budget-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.budget-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.budget-card p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.budget-card h2 {
+  margin-top: 8px;
+  color: #4f46e5;
+}
+
+.budget-card.success h2 {
+  color: #16a34a;
+}
