@@ -50,7 +50,3 @@ Once you have pasted the text:
 2.  Open your **Terminal** in VS Code.
 3.  Run these commands to update GitHub and fix that ".env" message:
 
-```bash
-git add README.md
-git commit -m "docs: finalized professional project documentation"
-git push origin main
