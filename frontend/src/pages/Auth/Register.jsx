@@ -1,22 +1,75 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../../services/api"; // Importing our fetch messenger
 import "./Register.css";
 
 function Register() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    try {
+      const data = await registerUser(formData);
+      alert(data.message || "Registration Successful!");
+      navigate("/"); 
+    } catch (err) {
+      // Shows exact error message from backend (e.g., "User already exists")
+      alert(err.message || "Registration failed. Please try again.");
+    }
+  };
+
   return (
     <div className="register-container">
-      <h2>Register</h2>
-
-      <input type="text" placeholder="Name" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
-
-      <button>Register</button>
-
-      <p className="auth-text">
-        Already have an account?{" "}
-        <Link to="/">Login</Link>
-      </p>
+      <div className="register-card">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              name="name" 
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Create Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className="register-btn">
+            Register
+          </button>
+        </form>
+        <p className="auth-text">
+          Already have an account?{" "}
+          <Link to="/" className="auth-link">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }

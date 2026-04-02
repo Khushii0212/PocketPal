@@ -1,53 +1,96 @@
-.expense-list {
+.expense-list-card {
   background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.expense-list-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 10px;
+}
+
+.empty {
+  text-align: center;
+  color: #9ca3af;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-.expense-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.expense-item:last-child {
-  border-bottom: none;
+  font-style: italic;
 }
 
 .expense-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  background-color: #f9fafb; 
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.expense-row:hover {
+  background-color: #ffffff;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #e5e7eb;
+}
+
+.expense-row span:first-child {
+  font-weight: 600;
+  color: #374151;
+  font-size: 15px;
+}
+
+.expense-row span:nth-child(2) {
+  font-weight: 700;
+  color: #4f46e5; 
+  font-size: 16px;
+}
+
+.expense-row input {
+  padding: 8px;
+  border: 1px solid #4f46e5;
+  border-radius: 6px;
+  width: 80px;
+  outline: none;
 }
 
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .actions button {
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.actions button:hover {
+  opacity: 0.8;
 }
 
 .actions .edit {
-  background-color: #f59e0b;
-  color: white;
+  background-color: #eef2ff; 
+  color: #4f46e5;
 }
 
 .actions .save {
-  background-color: #16a34a;
-  color: white;
+  background-color: #dcfce7; 
+  color: #16a34a;
 }
 
 .actions .delete {
-  background-color: #dc2626;
-  color: white;
+  background-color: #fee2e2; 
+  color: #dc2626;
 }

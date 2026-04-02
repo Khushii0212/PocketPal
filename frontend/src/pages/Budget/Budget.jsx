@@ -6,58 +6,86 @@ import { ExpenseContext } from "../../context/ExpenseContext";
 function Budget() {
   const { expenses, budget, setBudget } = useContext(ExpenseContext);
   const [inputBudget, setInputBudget] = useState("");
-
-  // Total spent (from expenses)
   const totalSpent = expenses.reduce((sum, e) => sum + e.amount, 0);
-
-  // Remaining budget
   const remaining = budget - totalSpent;
+  const spendPercentage = budget > 0 ? Math.min((totalSpent / budget) * 100, 100) : 0;
 
-const handleSaveBudget = () => {
-  if (!inputBudget) return;
-  setBudget(Number(inputBudget));
-  setInputBudget("");
-};
-
+  const handleSaveBudget = () => {
+    if (!inputBudget || inputBudget <= 0) return;
+    setBudget(Number(inputBudget));
+    setInputBudget("");
+    alert("Monthly Budget Updated!");
+  };
 
   return (
     <div className="budget-page">
       <Navbar />
 
       <div className="budget-content">
-        <h1 className="budget-title">Budget</h1>
+        <h1 className="budget-title">Monthly Budget</h1>
 
-        {/* Set Monthly Budget */}
         <div className="set-budget-card">
-          <h3>Set Monthly Budget</h3>
+          <div className="card-header">
+            <h3>Set Monthly Budget</h3>
+            <p>Plan your spending for better savings.</p>
+          </div>
 
           <div className="set-budget-form">
-            <input
-              type="number"
-              placeholder="Enter amount (₹)"
-              value={inputBudget}
-              onChange={(e) => setInputBudget(e.target.value)}
-            />
-            <button onClick={handleSaveBudget}>Save</button>
+            <div className="input-wrapper">
+              <span className="currency-symbol">₹</span>
+              <input
+                type="number"
+                placeholder="Enter amount"
+                value={inputBudget}
+                onChange={(e) => setInputBudget(e.target.value)}
+              />
+            </div>
+            <button className="save-btn" onClick={handleSaveBudget}>Update Budget</button>
           </div>
         </div>
 
-        {/* Budget Summary */}
-        <div className="budget-cards">
-          <div className="budget-card">
-            <p>Monthly Budget</p>
-            <h2>₹ {budget}</h2>
+        <div className="budget-summary-grid">
+          <div className="summary-card">
+            <span className="summary-icon">🎯</span>
+            <div className="summary-info">
+              <p>Budget Limit</p>
+              <h2>₹ {budget.toLocaleString()}</h2>
+            </div>
           </div>
 
-          <div className="budget-card">
-            <p>Total Spent</p>
-            <h2>₹ {totalSpent}</h2>
+          <div className="summary-card">
+            <span className="summary-icon">💸</span>
+            <div className="summary-info">
+              <p>Total Spent</p>
+              <h2>₹ {totalSpent.toLocaleString()}</h2>
+            </div>
           </div>
 
-          <div className="budget-card success">
-            <p>Remaining</p>
-            <h2>₹ {remaining}</h2>
+          <div className={`summary-card ${remaining < 0 ? "danger" : "success"}`}>
+            <span className="summary-icon">{remaining < 0 ? "🚨" : "✅"}</span>
+            <div className="summary-info">
+              <p>{remaining < 0 ? "Over Budget" : "Remaining"}</p>
+              <h2>₹ {remaining.toLocaleString()}</h2>
+            </div>
           </div>
+        </div>
+
+        <div className="progress-section">
+          <div className="progress-label">
+            <span>Budget Utilization</span>
+            <span>{spendPercentage.toFixed(0)}%</span>
+          </div>
+          <div className="progress-track">
+            <div 
+              className={`progress-bar ${spendPercentage > 90 ? "critical" : ""}`} 
+              style={{ width: `${spendPercentage}%` }}
+            ></div>
+          </div>
+          <p className="progress-help">
+            {remaining < 0 
+              ? "Warning: You have exceeded your budget!" 
+              : `You still have ₹ ${remaining.toLocaleString()} left for the month.`}
+          </p>
         </div>
       </div>
     </div>

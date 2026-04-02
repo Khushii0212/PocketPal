@@ -8,10 +8,8 @@ function Expenses() {
   return (
     <div className="expenses-page">
       <Navbar />
-
       <div className="expenses-content">
         <h1 className="expenses-title">Expenses</h1>
-
         <AddExpense />
         <ExpenseList />
       </div>

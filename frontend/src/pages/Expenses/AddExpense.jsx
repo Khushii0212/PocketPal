@@ -8,9 +8,10 @@ function AddExpense() {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("Food");
-  const [month, setMonth] = useState("Jan");
+  const [month, setMonth] = useState(new Date().toLocaleString("default", { month: "short" }));
 
-  const handleAddExpense = () => {
+  const handleAddExpense = (e) => {
+    e.preventDefault();
     if (!title || !amount) return;
 
     addExpense({
@@ -18,7 +19,7 @@ function AddExpense() {
       title,
       amount: Number(amount),
       category,
-      month: new Date().toLocaleString("default", { month: "short" }),
+      month,
     });
 
     setTitle("");
@@ -27,12 +28,11 @@ function AddExpense() {
 
   return (
     <div className="add-expense-card">
-      <h3>Add Expense</h3>
-
-      <div className="form-row">
+      <h3>Add New Expense</h3>
+      <form className="form-row" onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
-          placeholder="Title"
+          placeholder="What did you buy?"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -45,29 +45,20 @@ function AddExpense() {
         />
 
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option>Food</option>
-          <option>Travel</option>
-          <option>Shopping</option>
-          <option>Rent</option>
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Rent">Rent</option>
         </select>
 
         <select value={month} onChange={(e) => setMonth(e.target.value)}>
-          <option>Jan</option>
-          <option>Feb</option>
-          <option>Mar</option>
-          <option>Apr</option>
-          <option>May</option>
-          <option>Jun</option>
-          <option>Jul</option>
-          <option>Aug</option>
-          <option>Sep</option>
-          <option>Oct</option>
-          <option>Nov</option>
-          <option>Dec</option>
+          {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map((m) => (
+            <option key={m} value={m}>{m}</option>
+          ))}
         </select>
 
-        <button onClick={handleAddExpense}>Add</button>
-      </div>
+        <button type="button" onClick={handleAddExpense}>Add Expense</button>
+      </form>
     </div>
   );
 }
