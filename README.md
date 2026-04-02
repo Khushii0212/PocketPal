@@ -21,26 +21,21 @@ PocketPal is a full-stack **MERN** (MongoDB, Express, React, Node.js) applicatio
    ```bash
    git clone [https://github.com/Khushii0212/PocketPal.git](https://github.com/Khushii0212/PocketPal.git)
 
-2. Backend Setup:
+2. **Backend Setup:**
 
-Navigate to backend/
+ - Navigate to backend/
+ - Run npm install
+ - Create a .env file and add your MONGO_URI and JWT_SECRET.
+ - Start the server: npm start
 
-Run npm install
+3. **Frontend Setup:**
 
-Create a .env file and add your MONGO_URI and JWT_SECRET.
+  - Navigate to frontend/
+  - Run npm install
+  - Start the application: npm start
 
-Start the server: npm start
-
-3. Frontend Setup:
-
-Navigate to frontend/
-
-Run npm install
-
-Start the application: npm start
-
-👤 About the Developer
-Built with ❤️ by Khushi Prasad
+👤 **About the Developer**
+Built with ❤️ by **Khushi Prasad**
 Aspiring Full-Stack Developer | Passionate about creating clean, functional web solutions.
 
 
