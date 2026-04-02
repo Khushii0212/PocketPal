@@ -44,9 +44,4 @@ Built with ❤️ by Khushi Prasad
 Aspiring Full-Stack Developer | Passionate about creating clean, functional web solutions.
 
 
-### 3. Save and Push
-Once you have pasted the text:
-1.  **Save the file** (`Ctrl + S`).
-2.  Open your **Terminal** in VS Code.
-3.  Run these commands to update GitHub and fix that ".env" message:
 
