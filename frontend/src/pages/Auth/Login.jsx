@@ -9,6 +9,7 @@ function Login() {
     password: "",
   });
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -18,8 +19,6 @@ function Login() {
     try {
       const data = await loginUser(formData);
       
-      //  SUCCESS: Save the Token and User Info in the browser
-     
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       alert("Welcome back! Login Successful.");
@@ -28,10 +27,17 @@ function Login() {
       alert(err.message || "Login failed. Please check your email and password.");
     }
   };
+
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2>Login</h2>
+  
+        <div style={{ fontSize: "50px", marginBottom: "10px" }}></div> 
+        <h2 style={{ marginTop: "0" }}>Login</h2>
+        <p style={{ color: "#666", marginBottom: "30px" }}>
+          Please enter your details to sign in.
+        </p>
+        
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input
@@ -65,4 +71,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;

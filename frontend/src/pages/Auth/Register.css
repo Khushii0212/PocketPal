@@ -1,54 +1,93 @@
+/* 
+
+/* Center the container on the page */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Same font as Login */
+}
+
 .register-container {
-  width: 320px;
-  margin: 100px auto;
-  padding: 25px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 95%;           
+  max-width: 580px;     /* Broad width like the login page */
+  padding: 60px 80px;   /* Extra horizontal space to make it look wide */
+  /* Same purple gradient as your Login page */
+  background: linear-gradient(180deg, #7b61ff 0%, #a259ff 100%);
+  border-radius: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   text-align: center;
+  box-sizing: border-box; 
+  color: white;         /* Text needs to be white for the gradient */
 }
 
 .register-container h2 {
-  margin-bottom: 20px;
-  color: #333;
+  margin-top: 10px;
+  margin-bottom: 40px; 
+  color: white;
+  font-size: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
+/* Sub-text under the heading */
+.register-container p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+/* Pill-shaped broad inputs */
 .register-container input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  padding: 18px 30px;
+  margin-bottom: 20px;
+  border-radius: 50px; /* Makes it pill-shaped */
+  border: none;
+  background-color: #ffffff;
+  font-size: 16px;      
+  box-sizing: border-box;
+  outline: none;
 }
 
+/* Broad Register Button */
 .register-container button {
   width: 100%;
-  padding: 10px;
-  background-color: #16a34a;
-  color: white;
+  padding: 18px;
+  background-color: #83e8c5; /* Sea-foam green for contrast */
+  color: #4b44bd;
   border: none;
-  border-radius: 6px;
-  font-size: 15px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s;
 }
 
 .register-container button:hover {
-  background-color: #15803d;
+  transform: scale(1.02);
+  background-color: #72d9b6;
 }
 
+/* Footer Link Visibility */
 .auth-text {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #374151;
+  margin-top: 25px;
+  font-size: 15px;
+  color: white;
 }
 
 .auth-text a {
-  color: #16a34a;
-  text-decoration: none;
-  font-weight: 500;
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 .auth-text a:hover {
-  text-decoration: underline;
+  color: #83e8c5;
 }
