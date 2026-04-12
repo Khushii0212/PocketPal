@@ -7,9 +7,10 @@ import "./Expenses.css";
 function Expenses() {
   return (
     <div className="expenses-page">
+      <div className="bg-mesh"></div>
       <Navbar />
       <div className="expenses-content">
-        <h1 className="expenses-title">Expenses</h1>
+        <h1 className="expenses-title text-gradient">Manage Expenses</h1>
         <AddExpense />
         <ExpenseList />
       </div>

@@ -1,74 +1,31 @@
 .expenses-page {
   min-height: 100vh;
-  background-color: #f3f4f6; 
-  padding-bottom: 50px; 
+  padding: 0 0 40px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .expenses-content {
-  max-width: 1100px; 
+  width: 95%;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 32px 20px;
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expenses-title {
-  font-size: 32px; 
+  font-size: 36px;
   font-weight: 800;
-  color: #111827;
-  margin-bottom: 35px;
-  letter-spacing: -0.5px;
-  position: relative;
+  margin-bottom: 40px;
+  letter-spacing: -1.2px;
 }
 
-.expenses-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 50px;
-  height: 4px;
-  background: #4f46e5;
-  border-radius: 10px;
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.summary-card, .card, .budget-card, .stat-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  border: 1px solid transparent; 
-}
-
-.summary-card:hover, .card:hover, .budget-card:hover, .stat-card:hover {
-  transform: translateY(-8px); 
-  
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
-              
-border-color: rgba(79, 70, 229, 0.2);
-}
-
-.summary-card:hover .summary-icon, 
-.card:hover .card-icon, 
-.stat-card:hover .stat-icon-bg {
-  transform: scale(1.1);
-  background-color: #eef2ff; 
-  transition: transform 0.3s ease;
-}
-
-.summary-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: all 0.6s;
-}
-
-.summary-card:hover::before {
-  left: 100%;
+@media (max-width: 768px) {
+  .expenses-content { padding: 24px; }
+  .expenses-title { font-size: 28px; }
 }

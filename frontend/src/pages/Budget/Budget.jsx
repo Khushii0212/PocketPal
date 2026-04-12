@@ -19,15 +19,16 @@ function Budget() {
 
   return (
     <div className="budget-page">
+      <div className="bg-mesh"></div>
       <Navbar />
 
       <div className="budget-content">
-        <h1 className="budget-title">Monthly Budget</h1>
+        <h1 className="budget-title text-gradient">Financial Planning</h1>
 
-        <div className="set-budget-card">
+        <div className="set-budget-card glass">
           <div className="card-header">
-            <h3>Set Monthly Budget</h3>
-            <p>Plan your spending for better savings.</p>
+            <h3>Set Monthly Target</h3>
+            <p>Plan your spending for better savings and wealth growth.</p>
           </div>
 
           <div className="set-budget-form">
@@ -45,7 +46,7 @@ function Budget() {
         </div>
 
         <div className="budget-summary-grid">
-          <div className="summary-card">
+          <div className="summary-card glass">
             <span className="summary-icon">🎯</span>
             <div className="summary-info">
               <p>Budget Limit</p>
@@ -53,7 +54,7 @@ function Budget() {
             </div>
           </div>
 
-          <div className="summary-card">
+          <div className="summary-card glass">
             <span className="summary-icon">💸</span>
             <div className="summary-info">
               <p>Total Spent</p>
@@ -61,16 +62,16 @@ function Budget() {
             </div>
           </div>
 
-          <div className={`summary-card ${remaining < 0 ? "danger" : "success"}`}>
+          <div className={`summary-card glass ${remaining < 0 ? "danger" : "success"}`}>
             <span className="summary-icon">{remaining < 0 ? "🚨" : "✅"}</span>
             <div className="summary-info">
-              <p>{remaining < 0 ? "Over Budget" : "Remaining"}</p>
+              <p>{remaining < 0 ? "Over Budget" : "Balance Left"}</p>
               <h2>₹ {remaining.toLocaleString()}</h2>
             </div>
           </div>
         </div>
 
-        <div className="progress-section">
+        <div className="progress-section glass">
           <div className="progress-label">
             <span>Budget Utilization</span>
             <span>{spendPercentage.toFixed(0)}%</span>
@@ -83,8 +84,8 @@ function Budget() {
           </div>
           <p className="progress-help">
             {remaining < 0 
-              ? "Warning: You have exceeded your budget!" 
-              : `You still have ₹ ${remaining.toLocaleString()} left for the month.`}
+              ? "Warning: You have exceeded your budget limit! Consider reviewing your expenses." 
+              : `Strength! You still have ₹ ${remaining.toLocaleString()} available for this month.`}
           </p>
         </div>
       </div>

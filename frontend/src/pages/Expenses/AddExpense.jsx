@@ -27,14 +27,15 @@ function AddExpense() {
   };
 
   return (
-    <div className="add-expense-card">
-      <h3>Add New Expense</h3>
-      <form className="form-row" onSubmit={(e) => e.preventDefault()}>
+    <div className="add-expense-card glass">
+      <h3 className="text-gradient">Log New Expense</h3>
+      <form className="form-row" onSubmit={handleAddExpense}>
         <input
           type="text"
-          placeholder="What did you buy?"
+          placeholder="Item name"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
         />
 
         <input
@@ -42,13 +43,14 @@ function AddExpense() {
           placeholder="Amount (₹)"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          required
         />
 
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="Food">Food</option>
-          <option value="Travel">Travel</option>
-          <option value="Shopping">Shopping</option>
-          <option value="Rent">Rent</option>
+          <option value="Food">🍔 Food</option>
+          <option value="Travel">🚗 Travel</option>
+          <option value="Shopping">🛍️ Shopping</option>
+          <option value="Rent">🏠 Rent</option>
         </select>
 
         <select value={month} onChange={(e) => setMonth(e.target.value)}>
@@ -57,7 +59,7 @@ function AddExpense() {
           ))}
         </select>
 
-        <button type="button" onClick={handleAddExpense}>Add Expense</button>
+        <button type="submit" className="add-btn">Add Now</button>
       </form>
     </div>
   );

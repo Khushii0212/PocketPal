@@ -1,66 +1,59 @@
-import React, { useContext, useState } from "react";
-import "./ExpenseList.css";
+import React, { useState, useContext } from "react";
 import { ExpenseContext } from "../../context/ExpenseContext";
+import "./ExpenseList.css";
 
 function ExpenseList() {
-  const { expenses, deleteExpense, editExpense } = useContext(ExpenseContext);
-  const [editingId, setEditingId] = useState(null);
-  const [editedAmount, setEditedAmount] = useState("");
+  const { expenses, deleteExpense, updateExpense } = useContext(ExpenseContext);
+  const [editId, setEditId] = useState(null);
+  const [editAmount, setEditAmount] = useState("");
 
   const handleEdit = (expense) => {
-    setEditingId(expense.id);
-    setEditedAmount(expense.amount);
+    setEditId(expense.id);
+    setEditAmount(expense.amount);
   };
 
-  const handleSave = (expense) => {
-    editExpense({
-      ...expense,
-      amount: Number(editedAmount),
-    });
-    setEditingId(null);
+  const handleSave = (id) => {
+    updateExpense(id, { amount: Number(editAmount) });
+    setEditId(null);
   };
 
   return (
-    <div className="expense-list-card">
-      <h3>Recent Transactions</h3>
-
+    <div className="expense-list-card glass">
+      <h3 className="text-gradient">Recent Transactions</h3>
       {expenses.length === 0 ? (
-        <p className="empty">No expenses added yet. Start by adding one above!</p>
+        <p className="empty">No expenses recorded yet. Time to log something!</p>
       ) : (
         expenses.map((expense) => (
           <div key={expense.id} className="expense-row">
             <div className="expense-info">
-              <span className="category-tag">{expense.category}</span>
               <span className="expense-title">{expense.title}</span>
+              <span className="expense-meta">
+                {expense.category} • {expense.month}
+              </span>
             </div>
-
-            <div className="expense-value-section">
-              {editingId === expense.id ? (
-                <input
-                  className="edit-input"
-                  type="number"
-                  value={editedAmount}
-                  onChange={(e) => setEditedAmount(e.target.value)}
-                  autoFocus
-                />
-              ) : (
-                <span className="expense-amount">₹ {expense.amount.toLocaleString()}</span>
-              )}
-            </div>
+            
+            {editId === expense.id ? (
+              <input
+                type="number"
+                value={editAmount}
+                onChange={(e) => setEditAmount(e.target.value)}
+              />
+            ) : (
+              <span className="expense-amount">₹ {expense.amount.toLocaleString()}</span>
+            )}
 
             <div className="actions">
-              {editingId === expense.id ? (
-                <button className="save" onClick={() => handleSave(expense)}>
-                  Save
+              {editId === expense.id ? (
+                <button className="save" onClick={() => handleSave(expense.id)} title="Save">
+                  💾
                 </button>
               ) : (
-                <button className="edit" onClick={() => handleEdit(expense)}>
-                  Edit
+                <button className="edit" onClick={() => handleEdit(expense)} title="Edit">
+                  ✏️
                 </button>
               )}
-
-              <button className="delete" onClick={() => deleteExpense(expense.id)}>
-                Delete
+              <button className="delete" onClick={() => deleteExpense(expense.id)} title="Delete">
+                🗑️
               </button>
             </div>
           </div>

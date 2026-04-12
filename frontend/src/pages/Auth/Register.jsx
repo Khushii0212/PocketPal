@@ -28,8 +28,12 @@ function Register() {
 
   return (
     <div className="register-container">
-      <div className="register-card">
-        <h2>Register</h2>
+      <div className="bg-mesh"></div>
+      <div className="register-card glass">
+        <h2 className="text-gradient">Create Account</h2>
+        <p style={{ color: "var(--text-secondary)", marginBottom: "32px" }}>
+          Join PocketPal and start managing your wealth
+        </p>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input
@@ -62,12 +66,12 @@ function Register() {
             />
           </div>
           <button type="submit" className="register-btn">
-            Register
+            Get Started
           </button>
         </form>
         <p className="auth-text">
-          Already have an account?{" "}
-          <Link to="/" className="auth-link">Login</Link>
+          Already have an account?
+          <Link to="/" className="auth-link">Login Here</Link>
         </p>
       </div>
     </div>

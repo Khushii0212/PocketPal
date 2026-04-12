@@ -30,13 +30,10 @@ function Login() {
 
   return (
     <div className="login-container">
-      <div className="login-card">
-  
-        <div style={{ fontSize: "50px", marginBottom: "10px" }}></div> 
-        <h2 style={{ marginTop: "0" }}>Login</h2>
-        <p style={{ color: "#666", marginBottom: "30px" }}>
-          Please enter your details to sign in.
-        </p>
+      <div className="bg-mesh"></div>
+      <div className="login-card glass">
+        <h2 className="text-gradient">Welcome Back</h2>
+        <p>Login to manage your finances with PocketPal</p>
         
         <form onSubmit={handleSubmit}>
           <div className="input-group">
@@ -60,12 +57,12 @@ function Login() {
             />
           </div>
           <button type="submit" className="login-btn">
-            Login
+            Sign In
           </button>
         </form>
         <p className="auth-text">
-          Don't have an account?{" "}
-          <Link to="/register" className="auth-link">Register</Link>
+          Don't have an account?
+          <Link to="/register" className="auth-link">Create Account</Link>
         </p>
       </div>
     </div>
